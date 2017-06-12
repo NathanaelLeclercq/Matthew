@@ -12,4 +12,44 @@ Keep track of how many guesses the user has taken, and when the game ends, print
 
 """
 
+print "Welcome to the Guessing game"
+user_input = int(raw_input("Guess a number that is 1-9"))
+print user_input
+
+import random
+var = random.randint(1,9)
+#print var
+
+guess = 3
+while guess > 0:
+    guess -= 1
+    if user_input == var:
+        print "congratulations You've done it! "
+        break
+    if user_input < var:
+        print "higher"
+    if user_input > var:
+
+        print "lower"
+    user_input = int(raw_input("Guess a number that is 1-9"))
+
+
+print var
+
+user = raw_input('thanks for playing')
+print user
+exit(code=1)
+
+
+
+
+
+
+
+
+
+
+
+
+
 

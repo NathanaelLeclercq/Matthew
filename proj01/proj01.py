@@ -11,15 +11,19 @@ user_input = raw_input("Enter a name: ")
 print user_input
 user_input2 = raw_input("Enter your age: ")
 print user_input2
-year100 = 100 - int(user_input2)
-user_input3 = raw_input("Have you had you birthday yet ? ")
+year100 = 100 - int(user_input2) + int(user_input2)
+year2000 = year100 + 2000
+user_input3 = raw_input("Have you had you birthday yet, press 0 if yes or press 1 if no ? ")
 print user_input3
-if user_input3 = yes:
-    print "You will be 100 in" (year100 - 1)"years."
+
+if user_input3 < int(1):
+
+    print "You will be 100 in"
+    print (year2000 - 1)
+    print "years."
 else:
-    print (year100) + 0
-print "You will be 100 in "
-print year100
-print "years "
+    print "You will be 100 in"
+    print (year2000)
+    print "years"
 
 

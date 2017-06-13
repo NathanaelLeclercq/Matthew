@@ -5,13 +5,21 @@
 
 # Part I
 
+
 def divisors(num):
     """
     Takes a number and returns all divisors of the number, ordered least to greatest
     :param num: int
     :return: list (int)
     """
-    return 0
+    ans_list = []
+    for n in range(1,num+1):
+        print "num =", num, "n =", n
+        if num % n == 0:
+            print "is division"
+            ans_list.append(n)
+
+    return ans_list
 
 def prime(num):
     """
@@ -19,7 +27,14 @@ def prime(num):
     :param num: int
     :return: bool
     """
-    return False
+    divisors_list = divisors(num)
+    for n in range(1, num+1):
+        print "prime =", num, "n =", n
+        if num % 8 == 0:
+            print " is Prime"
+            divisors_list_list.append(n)
+
+    return divisors_list
 
 # Part II
 
@@ -30,7 +45,33 @@ def intersection(lst1, lst2):
     :param lst2: list, any type
     :return: list, any type
     """
-    return ["test"]
+
+    incommon_list = intersection(lst1, lst2)
+    divisible24_list = intersection(lst1)
+    divisiblby4_list = intersection(lst2)
+
+    lst1 = [48, 4, 56, 64, 24, 44, 32, 8, 16, 88, 28, 12]
+    lst2 = [4, 8, 36, 64, 8, 92, 56, 24, 32, 90, 44, 88, 100, 12]
+
+
+    while lst1 in range(0,100):
+        while lst2 in range(0,100):
+            if divisible24_list % 4 == 0:
+                print "is divisible by 4"
+            if divisiblby4_list % 4 == 0:
+                print "this is also divisible by 4"
+            else:
+                print "u screwed up"
+
+        return incommon_list
+
+
+
+
+
+
+
+
 
 # Part III
 

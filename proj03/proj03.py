@@ -34,10 +34,10 @@ while guess > 0:
     user_input = int(raw_input("Guess a number that is 1-9"))
 
 
+print "The answer was "
 print var
-
+print "Press enter to exit"
 user = raw_input('thanks for playing')
-print user
 exit(code=1)
 
 

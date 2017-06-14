@@ -32,7 +32,6 @@ def load_words():
 def choose_word(wordlist):
     """
     wordlist (list): list of words (strings)
-
     Returns a word from wordlist at random
     """
     return random.choice(wordlist)
@@ -40,9 +39,76 @@ def choose_word(wordlist):
 # end of helper code
 # -----------------------------------
 
+
 # actually load the dictionary of words and point to it with 
 # the wordlist variable so that it can be accessed from anywhere
 # in the program
 wordlist = load_words()
 
-# your code begins here!
+#your code begins here!
+def hangman():
+    string_list = []
+    blank_list = []
+    word = choose_word(wordlist)
+    guess = 6
+    alphabet = string.lowercase
+    length = len(word)
+    used_letters = []
+    print "I picked a word that is " + str(length) + " letters long."
+    print alphabet
+    for letter in word:
+        string_list.append(letter)
+        blank_list.append("_")
+
+
+
+
+    while guess > 0:
+        guess_input = raw_input("Guess a letter: ")
+        guess -= 1
+        used_letters.append(guess_input)
+        print "These are the letters you have used:",
+        print used_letters
+
+
+
+
+        for num in range(len(string_list)):
+            if string_list[num] == guess_input:
+                guess += 1
+                blank_list[num] = guess_input
+        if blank_list == string_list:
+                print "You win!! :) "
+                print string_list
+                break
+
+        print blank_list
+
+        if guess == 6:
+            print "You have 6 guesses left."
+        if guess == 5:
+            print "You have 5 guesses left."
+        if guess == 4:
+            print "You have 4 guesses left."
+        if guess == 3:
+            print "You have 3 guesses left."
+        if guess == 2:
+            print "You have 2 guesses left."
+        if guess == 1:
+            print "You have 1 guess left."
+
+    if guess == 0:
+        print "Game over. Play again."
+        print string_list
+
+
+
+
+
+
+
+
+
+    return word
+
+hangman()

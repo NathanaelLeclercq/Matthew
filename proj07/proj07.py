@@ -160,14 +160,29 @@ def update_hand(hand, word):
     returns: dictionary (string -> int)
     """
     # TO DO ...
+    new_hand = hand.copy()
 
-    hand =  deal_hand(n)
-    display_hand(hand)
-    hand = update_hand(hand, word)
-    display_hand(hand)
+    for letter in word:
+        new_hand[letter]  = new_hand.get(letter,0) -1
 
-    return hand
+        #display_hand(new_hand)
 
+
+
+
+
+
+
+
+    # get_frequency_dict(new_hand)
+    #
+    # display_hand(new_hand)
+    #
+    # new_hand = update_hand(new_hand, word)
+    #
+    # display_hand(new_hand)
+
+    return new_hand
 
 
 
@@ -187,6 +202,17 @@ def is_valid_word(word, hand, word_list):
     word_list: list of lowercase strings
     """
     # TO DO...
+    new_hand = hand.copy()
+    if word in word_list:
+        for letter in word:
+            if letter not in new_hand or new_hand[letter] <= 0:
+                return False
+            else:
+                new_hand = update_hand(new_hand, letter)
+        return True
+    else:
+        return False
+
 
 def calculate_handlen(hand):
     handlen = 0

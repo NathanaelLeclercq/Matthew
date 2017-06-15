@@ -76,7 +76,21 @@ def get_word_score(word, n):
     word: string (lowercase letters)
     returns: int >= 0
     """
-    # TO DO...
+
+   # for num in range(len(word)):
+
+    sum = 0
+
+    for letter in word:
+        if letter in SCRABBLE_LETTER_VALUES:
+            sum = sum + SCRABBLE_LETTER_VALUES[letter] * (len(word))
+    if (len(word)) == n:
+                sum = sum + 50
+
+    return sum
+
+
+
     
 #
 # Make sure you understand how this function works and what it does!
@@ -146,6 +160,18 @@ def update_hand(hand, word):
     returns: dictionary (string -> int)
     """
     # TO DO ...
+
+    hand =  deal_hand(n)
+    display_hand(hand)
+    hand = update_hand(hand, word)
+    display_hand(hand)
+
+    return hand
+
+
+
+
+
 
 #
 # Problem #3: Test word validity

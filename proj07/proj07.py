@@ -163,7 +163,7 @@ def update_hand(hand, word):
     new_hand = hand.copy()
 
     for letter in word:
-        new_hand[letter]  = new_hand.get(letter,0) -1
+        new_hand[letter]  = new_hand.get(letter,0) - 1
 
         #display_hand(new_hand)
 
@@ -213,7 +213,6 @@ def is_valid_word(word, hand, word_list):
     else:
         return False
 
-
 def calculate_handlen(hand):
     handlen = 0
     for v in hand.values():
@@ -252,6 +251,28 @@ def play_hand(hand, word_list):
       
     """
     # TO DO ...
+    new_hand = hand.copy()
+    display_hand(new_hand)
+    n = len(hand)
+    word = raw_input("Enter your word: ")
+
+    if is_valid_word(word, hand, word_list) == True:
+        update_hand(new_hand, word)
+        print "good job you made a word"
+        #print word_list
+        display_hand(new_hand)
+        get_word_score(word, n)
+        print get_word_score(word, n)
+
+    if is_valid_word(word, hand, word_list) == False:
+        print "get rekt m8 try again and get a job and life"
+        display_hand(new_hand)
+
+    if word == ".":
+        print "GAME OVER"
+        #break
+
+    return play_hand
 
 #
 # Problem #5: Playing a game
@@ -274,9 +295,31 @@ def play_game(word_list):
     """
     # TO DO...
 
+
+    user_input = raw_input("press n, to play new game. press r, play your last hand again. press e, to exit the game.")
+    if user_input == "n":
+        hand = deal_hand(HAND_SIZE)
+        new_hand = hand.copy()
+        old_hand = hand.copy()
+        play_hand(hand, word_list)
+    if user_input == "r":
+        old_hand = new_hand
+    if user_input == "e":
+        print "good bye"
+        exit(1)
+    return play_game
+
+
+
+
+
 #
 # Build data structures used for entire session and play game
 #
+hand = deal_hand(HAND_SIZE)
+
 if __name__ == '__main__':
     word_list = load_words()
     play_game(word_list)
+
+
